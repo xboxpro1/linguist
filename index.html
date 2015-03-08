@@ -36,8 +36,13 @@
         var languages = jsyaml.safeLoad(data);
 
         for(var language in languages) {
-          attrs = languages[language];
-          $list.append('<li style="border-bottom-color:' + attrs.color + '">' + language + '</li>');
+          var attrs = languages[language];
+          var color = attrs.color;
+          if(!color && attrs.group) {
+            color = languages[attrs.group].color;
+          }
+
+          $list.append('<li style="border-bottom-color:' + color + '">' + language + '</li>');
         }
       });
 
