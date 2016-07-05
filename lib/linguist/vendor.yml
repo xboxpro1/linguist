@@ -153,6 +153,12 @@
 - (^|/)tiny_mce([^.]*)\.js$
 - (^|/)tiny_mce/(langs|plugins|themes|utils)
 
+# Ace Editor
+- (^|/)ace-builds/
+
+# Fontello CSS files
+- (^|/)fontello(.*?)\.css$
+
 # MathJax
 - (^|/)MathJax/
 

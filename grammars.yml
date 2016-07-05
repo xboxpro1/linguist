@@ -180,6 +180,8 @@ vendor/grammars/atom-language-clean:
 - source.clean
 vendor/grammars/atom-language-purescript/:
 - source.purescript
+vendor/grammars/atom-language-srt:
+- text.srt
 vendor/grammars/atom-language-stan/:
 - source.stan
 vendor/grammars/atom-salt:
@@ -377,6 +379,8 @@ vendor/grammars/language-python:
 - text.python.traceback
 vendor/grammars/language-renpy:
 - source.renpy
+vendor/grammars/language-restructuredtext:
+- text.restructuredtext
 vendor/grammars/language-shellscript:
 - source.shell
 - text.shell-session
@@ -384,6 +388,8 @@ vendor/grammars/language-supercollider:
 - source.supercollider
 vendor/grammars/language-toc-wow:
 - source.toc
+vendor/grammars/language-turing:
+- source.turing
 vendor/grammars/language-wavefront:
 - source.wavefront.mtl
 - source.wavefront.obj
@@ -492,8 +498,6 @@ vendor/grammars/python-django.tmbundle:
 vendor/grammars/r.tmbundle:
 - source.r
 - text.tex.latex.rd
-vendor/grammars/restructuredtext.tmbundle:
-- text.restructuredtext
 vendor/grammars/ruby-haml.tmbundle:
 - text.haml
 vendor/grammars/ruby-slim.tmbundle:

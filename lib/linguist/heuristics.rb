@@ -382,12 +382,26 @@ module Linguist
       elsif /(alter module)|(language sql)|(begin( NOT)+ atomic)/i.match(data)  || /signal SQLSTATE '[0-9]+'/i.match(data)
         #IBM db2
         Language["SQLPL"]
-      elsif /pragma|\$\$PLSQL_|XMLTYPE|sysdate|systimestamp|\.nextval|connect by|AUTHID (DEFINER|CURRENT_USER)/i.match(data) || /constructor\W+function/i.match(data)
+      elsif /\$\$PLSQL_|XMLTYPE|sysdate|systimestamp|\.nextval|connect by|AUTHID (DEFINER|CURRENT_USER)/i.match(data) || /constructor\W+function/i.match(data)
         #Oracle
         Language["PLSQL"]
       elsif ! /begin|boolean|package|exception/i.match(data)
         #Generic SQL
         Language["SQL"]
+      end
+    end
+    
+    disambiguate ".srt" do |data|
+      if /^(\d{2}:\d{2}:\d{2},\d{3})\s*(-->)\s*(\d{2}:\d{2}:\d{2},\d{3})$/.match(data)
+        Language["SubRip Text"]
+      end
+    end
+    
+    disambiguate ".t" do |data|
+      if /^\s*%|^\s*var\s+\w+\s*:\s*\w+/.match(data)
+        Language["Turing"]
+      elsif /^\s*use\s+v6\s*;/.match(data)
+        Language["Perl6"]
       end
     end
     
@@ -400,7 +414,7 @@ module Linguist
     end
 
     disambiguate ".ts" do |data|
-      if data.include?("<TS ")
+      if data.include?("</TS>")
         Language["XML"]
       else
         Language["TypeScript"]
